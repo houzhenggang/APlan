@@ -1,4 +1,5 @@
-EXTRA_CFLAGS = -I$(SOURCE_DIR)/rt2860v2/include -I$(SOURCE_DIR)/rt2860v2/ate/include
+
+EXTRA_CFLAGS = -Idrivers/net/wireless/rt2860v2/include -Idrivers/net/wireless/rt2860v2/ate/include
 
 ifeq ($(CONFIG_SOC_MT7620),y)
 EXTRA_CFLAGS += -DCONFIG_RALINK_MT7620
@@ -74,7 +75,6 @@ rt2860v2_ap-objs += ../rt2860v2/os/linux/rt_pci_rbus.o
 rt2860v2_ap-objs += ../rt2860v2/os/linux/rt_rbus_pci_drv.o
 rt2860v2_ap-objs += ../rt2860v2/os/linux/rt_rbus_pci_util.o
 rt2860v2_ap-objs += ../rt2860v2/os/linux/rbus_main_dev.o
-rt2860v2_ap-objs += ../rt2860v2/os/linux/rt_flash.o
 
 rt2860v2_ap-objs += ../rt2860v2/ate/common/rt_ate.o
 rt2860v2_ap-objs += ../rt2860v2/ate/common/rt_qa.o
@@ -234,7 +234,7 @@ rt2860v2_ap-objs +=  ../rt2860v2/chips/rt6352.o
 rt2860v2_ap-objs +=  ../rt2860v2/ate/chips/rt6352_ate.o
 endif
 
-ifeq ($(CONFIG_SOC_MT7620),y)
+ifeq ($(CONFIG_RALINK_MT7620),y)
 rt2860v2_ap-objs +=  ../rt2860v2/common/rt_rf.o
 rt2860v2_ap-objs +=  ../rt2860v2/chips/rt6352.o
 rt2860v2_ap-objs +=  ../rt2860v2/ate/chips/rt6352_ate.o
@@ -320,7 +320,7 @@ EXTRA_CFLAGS += -DRT6352_EP_SUPPORT -DRT6352_EL_SUPPORT
 endif
 endif
 
-ifeq ($(CONFIG_SOC_MT7620),y)
+ifeq ($(CONFIG_RALINK_MT7620),y)
 EXTRA_CFLAGS += -DRT6352 -DRTMP_RF_RW_SUPPORT -DRF_BANK -DRTMP_FLASH_SUPPORT -DCONFIG_SWMCU_SUPPORT
 EXTRA_CFLAGS += -DSPECIFIC_BCN_BUF_SUPPORT -DVCORECAL_SUPPORT
 EXTRA_CFLAGS += -DRESOURCE_PRE_ALLOC
@@ -405,7 +405,7 @@ EXTRA_CFLAGS += -DNEW_MBSSID_MODE
 ifeq ($(CONFIG_RALINK_RT6352),y)
 EXTRA_CFLAGS += -DENHANCE_NEW_MBSSID_MODE
 endif
-ifeq ($(CONFIG_SOC_MT7620),y)
+ifeq ($(CONFIG_RALINK_MT7620),y)
 EXTRA_CFLAGS += -DENHANCE_NEW_MBSSID_MODE
 endif
 endif
@@ -416,7 +416,7 @@ EXTRA_CFLAGS += -DMAT_SUPPORT
 endif
 
 ifeq ($(CONFIG_RT2860V2_AP_MAC_REPEATER),y)
-ifeq ($(CONFIG_SOC_MT7620),y)
+ifeq ($(CONFIG_RALINK_MT7620),y)
 EXTRA_CFLAGS += -DMAC_APCLI_SUPPORT
 endif
 EXTRA_CFLAGS += -DMAC_REPEATER_SUPPORT
@@ -488,7 +488,7 @@ EXTRA_CFLAGS   += -DADJUST_POWER_CONSUMPTION_SUPPORT
 endif
 
 ifeq ($(CONFIG_RT2860V2_SINGLE_SKU),y)
-ifeq ($(CONFIG_SOC_MT7620),y)
+ifeq ($(CONFIG_RALINK_MT7620),y)
 EXTRA_CFLAGS   += -DSINGLE_SKU_V2
 else
 EXTRA_CFLAGS   += -DSINGLE_SKU
