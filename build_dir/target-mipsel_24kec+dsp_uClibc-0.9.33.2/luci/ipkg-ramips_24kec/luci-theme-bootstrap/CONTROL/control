@@ -1,0 +1,9 @@
+Package: luci-theme-bootstrap
+Version: svn-r9977-1
+Depends: libc, luci-theme-base
+Source: feeds/luci/contrib/package/luci
+Section: luci
+Maintainer: LuCI Development Team <luci@lists.subsignal.org>
+Architecture: ramips_24kec
+Installed-Size: 12746
+Description:  Bootstrap Theme (default)

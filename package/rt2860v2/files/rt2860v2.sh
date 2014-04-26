@@ -455,6 +455,7 @@ enable_rt2860v2() {
 	prepare_config $device
 	
 	config_get dmode $device mode
+	## get the all vif of device 
 	config_get vifs "$device" vifs
 
 	config_get maxassoc $device maxassoc 0
@@ -602,6 +603,7 @@ enable_rt2860v2() {
 					iwpriv $ifname set "SSID=${ssid}"
 					echo 
 					iwpriv $ifname set WscConfMode=0
+					logger " enable wep !"
 					;;
 				none|open)
 					echo "NONE" >>/tmp/wifi_encryption_${ifname}.dat

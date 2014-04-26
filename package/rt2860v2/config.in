@@ -56,7 +56,7 @@ config  RT2860V2_AP_MAC_REPEATER
 	bool "MAC Repeater Support"
 	depends on RT2860V2_AP
 	depends on RT2860V2_AP_APCLI
-	depends on RALINK_RT6352 || RALINK_MT7620
+	#depends on RALINK_RT6352 || RALINK_MT7620
 	default n
 
 config  RT2860V2_AP_IGMP_SNOOP
@@ -140,11 +140,11 @@ config  RT2860V2_AP_80211N_DRAFT3
 	bool "802.11n Draft3"
 	depends on RT2860V2_AP
 
-#config  RT2860V2_AP_RTMP_INTERNAL_TX_ALC
-#        bool "TSSI Compensation"
-#        depends on RT2860V2_AP
-#        depends on RALINK_RT3350 || RALINK_RT3352 || RALINK_RT5350 || RALINK_MT7620 || RALINK_RT6352
-#	default n
+config  RT2860V2_AP_RTMP_INTERNAL_TX_ALC
+        bool "TSSI Compensation"
+        depends on RT2860V2_AP
+        #depends on RALINK_RT3350 || RALINK_RT3352 || RALINK_RT5350 || RALINK_MT7620 || RALINK_RT6352
+	default n
 
 config  RT2860V2_ADJ_PWR_CONSUMPTION_SUPPORT
         bool "Adjust Power Consumption Support"
@@ -159,7 +159,7 @@ config  RT2860V2_SINGLE_SKU
 
 choice
 	prompt "Choose Power Design"
-        depends on RALINK_MT7620 || RALINK_RT6352
+        #depends on RALINK_MT7620 || RALINK_RT6352
 	default INTERNAL_PA_INTERNAL_LNA
 	config  INTERNAL_PA_INTERNAL_LNA
 	bool "Internal PA and Internal LNA"
@@ -169,12 +169,12 @@ choice
 	bool "External PA and External LNA"		
 endchoice
 
-config  RT2860V2_AP_RTMP_INTERNAL_TX_ALC
-        bool "TSSI Compensation"
-        depends on RT2860V2_AP
-        depends on RALINK_RT3350 || RALINK_RT3352 || RALINK_RT5350 || RALINK_MT7620 || RALINK_RT6352
-        depends on INTERNAL_PA_INTERNAL_LNA || INTERNAL_PA_EXTERNAL_LNA
-	default n
+#config  RT2860V2_AP_RTMP_INTERNAL_TX_ALC
+#        bool "TSSI Compensation"
+#        depends on RT2860V2_AP
+#        depends on RALINK_RT3350 || RALINK_RT3352 || RALINK_RT5350 || RALINK_MT7620 || RALINK_RT6352
+#        depends on INTERNAL_PA_INTERNAL_LNA || INTERNAL_PA_EXTERNAL_LNA
+#	default n
 
 config  RT2860V2_AP_RTMP_TEMPERATURE_COMPENSATION
         bool "Temperature Compensation"

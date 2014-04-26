@@ -1,0 +1,9 @@
+Package: luci-lib-httpclient
+Version: svn-r9977-1
+Depends: libc, luci-lib-core, luci-lib-web, luci-lib-nixio
+Source: feeds/luci/contrib/package/luci
+Section: luci
+Maintainer: LuCI Development Team <luci@lists.subsignal.org>
+Architecture: ramips_24kec
+Installed-Size: 4906
+Description:  HTTP(S) client library
